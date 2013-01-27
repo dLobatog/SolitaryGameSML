@@ -19,4 +19,16 @@ datatype move = Discard of card | Draw
 
 exception IllegalMove
 
+fun remove(str,lst) =
+  if null lst then []
+  else if same_string(hd(lst),str) then remove(str, tl lst)
+  else hd(lst)::remove(str, tl lst)
+
+fun all_except_option(str,lst) = 
+  case lst of 
+       []  => NONE
+     | lst => SOME (remove(str,lst))
+        
+
+
 (* put your solutions for problem 2 here *)
